@@ -1,6 +1,6 @@
 import Vuex from 'vuex';
 import axios from 'axios';
-import XLSX from "xlsx";
+
 
 
 
@@ -18,6 +18,7 @@ const createStore = () => {
             setLoadedData(state, posts) {
                 //console.log("Data set")
                 state.loadedData = posts;
+                console.log(posts)
                 // console.log("hi")
             },
             setLoadedDocs(state, array) {
@@ -35,19 +36,19 @@ const createStore = () => {
             }
         },
         actions: {
-            getData(vuexContext) {
-                //console.log('NuxtServerInit was Called 1');
-                return axios.get(process.env.dbUrl + 'getAll')
-                    .then((result) => {
-                        const postArray = result.data
-                        vuexContext.commit('setLoadedData', postArray);
-                        // console.log('this is exec after commit')
-                    })
-                    .catch((e) =>
-                        console.log()
-                    )
-
-            },
+            // nuxtServerInit(vuexContext) {
+            //     console.log('GetData was called');
+            //     console.log(process.env.dbUrl + 'getAll')
+            //     return axios.get(process.env.dbUrl + 'getAll/')
+            //         .then((result) => {
+            //             const postArray = result.data
+            //             vuexContext.commit('setLoadedData', postArray);
+            //             // console.log('this is exec after commit')
+            //         })
+            //         .catch((e) =>
+            //             console.log()
+            //         )
+            // },
 
             upload(vuexContext, payload) {
                 // console.log(vuexContext)
@@ -85,7 +86,7 @@ const createStore = () => {
                 console.log("in upload-data");
                 console.log(payload.requirements);
                 console.log(payload.token)
-                const postUrl = 'http://localhost:3000/api/dataUpload' + '/upload';
+                const postUrl = '/api/dataUpload/upload';
                 await axios.request({
                     method: 'post',
                     headers: {

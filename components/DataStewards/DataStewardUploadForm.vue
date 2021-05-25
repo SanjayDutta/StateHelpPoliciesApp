@@ -307,7 +307,7 @@ export default {
           })
           .then(() => {
             //if there is an error
-            console.log("Get Back");
+            //console.log("Get Back");
             this.$nuxt.error({ statusCode: 404, message: "err message" });
           });
       }

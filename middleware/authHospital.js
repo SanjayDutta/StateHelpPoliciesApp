@@ -2,10 +2,10 @@ import axios from "axios";
 import Cookie from "js-cookie";
 
 export default function (context) {
-    console.log("--------------")
-    console.log('Checking for token')
-    let token = '';
-    console.log(context.store.state.token);
+    //console.log("--------------")
+    //console.log('Checking for token')
+    //let token = '';
+    //console.log(context.store.state.token);
     //console.log(context.req.headers)
     if (context.req) {
         //If user has requested and cookie exists

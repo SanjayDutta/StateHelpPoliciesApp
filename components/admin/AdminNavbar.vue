@@ -13,7 +13,7 @@
             <b-nav-item href="/admin/portal">Dashboard</b-nav-item>
             <b-nav-item href="/admin/portal/requirements">Requirements</b-nav-item>
             <b-nav-item href="/admin/portal/documents">Documents</b-nav-item>
-            <b-nav-item href="#">FAQ</b-nav-item>
+            <b-nav-item href="/faq">FAQ</b-nav-item>
           </b-navbar-nav>
 
           <!-- Right aligned nav items -->

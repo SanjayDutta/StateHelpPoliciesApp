@@ -142,7 +142,7 @@ export default {
       console.log("Form:" + this.form.role);
       console.log("sending post req");
       axios
-        .post("http://localhost:3000/api/register", {
+        .post("/api/register", {
           ...this.form,
         })
         .then((result) => {

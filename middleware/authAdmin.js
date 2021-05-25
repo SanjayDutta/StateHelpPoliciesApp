@@ -23,7 +23,7 @@ export default function (context) {
         }
 
         //send a request for authentication with headers and body
-        return axios.post('http://localhost:3000/api/auth', {
+        return axios.post('/api/auth', {
             role: 'Admin'
         }, {
             headers: headers

@@ -41,5 +41,6 @@ export default {
 .dashbord-main {
   padding: 2vw;
   background-color: #192332;
+  color: black;
 }
 </style>

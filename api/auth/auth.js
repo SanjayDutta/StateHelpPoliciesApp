@@ -1,5 +1,4 @@
 const express = require("express");
-
 const bodyParser = require("body-parser");
 const jwt = require('jsonwebtoken');
 const router = express.Router();
@@ -20,7 +19,7 @@ router.post('/', authenticateToken, (req, res) => {
 })
 
 function authenticateToken(req, res, next) {
-    //console.log(req.body)
+    console.log(req.body)
     const authHeader = req.headers['authorization']
     const token = authHeader && authHeader.split(' ')[1]
 
@@ -30,6 +29,7 @@ function authenticateToken(req, res, next) {
     }
 
     if (req.body.role === 'Medical Sale Representative') {
+
         jwt.verify(token, 'secretMed', (err, data) => {
             if (err) {
                 return res.sendStatus(403)

@@ -1,9 +1,10 @@
 const bodyParser = require("body-parser")
 
 export default {
+  mode: 'universal',
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'StateHelpPoliciesApp',
+    title: 'PhoeniX Connect : A State Help Policies App',
     htmlAttrs: {
       lang: 'en'
     },
@@ -18,7 +19,7 @@ export default {
       { rel: "stylesheet", href: "https://use.fontawesome.com/releases/v5.15.3/css/all.css", integrity: "sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk", crossorigin: "anonymous" }
     ]
   },
-
+  loading: { color: '#ffffff' },
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
     '~/assets/styles/main.css'
@@ -49,8 +50,9 @@ export default {
     '~/api'
   ],
   env: {
-    downloadUrl: 'http://localhost:3000/api/downloadData/',
-    dbUrl: 'http://localhost:3000/api/medicalData/',
+    downloadUrl: '/api/downloadData/',
+    dbUrl: '/api/medicalData/',
+    BASE_URL: '/api/auth/',
     mongoDbUrl: 'mongodb+srv://admin-sanjay:test123@cluster0.bsc3x.mongodb.net/phoenixDB?retryWrites=true&w=majority'
   },
   router: {

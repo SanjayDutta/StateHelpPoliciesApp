@@ -23,7 +23,7 @@ export default function (context) {
 
     } catch (error) {
         //console.log('caught error')
-        console.log(error);
+        //console.log(error);
         context.redirect('/')
     }
 }

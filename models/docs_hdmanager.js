@@ -1,6 +1,4 @@
 const mongoose = require('mongoose');
-const dbUrl = process.env.mongoDbUrl;
-mongoose.connect(dbUrl, { useNewUrlParser: true, useUnifiedTopology: true });
 
 const dataUpload = {
     email: String,

@@ -11,8 +11,8 @@
         <b-collapse id="nav-collapse" is-nav>
           <b-navbar-nav>
             <b-nav-item href="/dashboard">Dashboard</b-nav-item>
-            <b-nav-item href="/dashboard/requirements">Requirements</b-nav-item>
-            <b-nav-item href="/dashboard/documents">Documents</b-nav-item>
+            <b-nav-item href="/dashboard/myRequirements">Requirements</b-nav-item>
+            <b-nav-item href="/dashboard/mydocs">Documents</b-nav-item>
             <b-nav-item href="#">FAQ</b-nav-item>
           </b-navbar-nav>
 

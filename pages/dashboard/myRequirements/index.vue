@@ -1,6 +1,6 @@
 <template>
   <div class="workarea-container">
-    <SalesRepNavBar></SalesRepNavBar>
+    <DataStewardsNavBar></DataStewardsNavBar>
     <div class="intro-container">
       <h1>View latest Requirements</h1>
       <br />
@@ -23,18 +23,20 @@
 import axios from "axios";
 import SalesRepNavBar from "~/components/SalesRep/SalesRepNavBar.vue";
 import SalesRepGetDataContainer from "~/components/SalesRep/SalesRepGetDataContainer.vue";
+import DataStewardsNavBar from "../../../components/DataStewards/DataStewardsNavBar.vue";
+
 export default {
   middleware: ["authHospital", "getOrgId"],
   components: {
-    SalesRepNavBar,
     SalesRepGetDataContainer,
+    DataStewardsNavBar,
   },
   data() {
     return { loaded: [], temp: true };
   },
   async created() {
-    console.log("Hello");
-    console.log(this.$store.state.organisationId);
+    //console.log("Hello");
+    //console.log(this.$store.state.organisationId);
     axios
       .get(process.env.dbUrl + "getAll/" + this.$store.state.organisationId)
       .then((res) => {

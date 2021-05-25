@@ -73,7 +73,7 @@ export default {
       console.log("cliked");
       if (text === "hdmanagers") {
         return axios
-          .get("http://localhost:3000/api/admin/" + "gethdmanagers")
+          .get("/api/admin/gethdmanagers")
           .then((res) => {
             this.loadedUsersHDM = res.data;
             this.tempOne = false;
@@ -84,7 +84,7 @@ export default {
           });
       } else {
         return axios
-          .get("http://localhost:3000/api/admin/" + "getmedsalesrep")
+          .get("/api/admin/getmedsalesrep")
           .then((res) => {
             this.loadedUsersMSR = res.data;
             this.tempTwo = false;

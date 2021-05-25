@@ -81,34 +81,37 @@ export default {
       this.$store.state.isLogin = !this.$store.state.isLogin;
     },
     onSubmit() {
-      console.log(this.form.email);
-      console.log(this.form.password);
-      console.log("http://localhost:3000/api/login/" + this.type);
+      // console.log(this.form.email);
+      // console.log(this.form.password);
+      // console.log("/api/login/" + this.type);
       let addedRole = "";
       if (this.buttonColor) addedRole = "Hospital-Data Manager";
       else addedRole = "Medical Sale Representative";
-      console.log(addedRole);
+      //console.log(addedRole);
       axios
-        .post("http://localhost:3000/api/login/" + this.type, {
+        .post("/api/login/" + this.type, {
           organisationId: this.form.orgId,
           password: this.form.password,
           role: addedRole,
         })
         .then((result) => {
-          console.log("yes");
-          console.log(result.data.access_token);
+          // console.log("yes");
+          // console.log(result.data.access_token);
           const access_token = result.data.access_token;
           const organisationId = result.data.organisationId;
           Cookie.set("organisationId", organisationId);
           Cookie.set("access_token", access_token);
           this.$store.commit("setOrgId", organisationId);
-          console.log(this.$store.state.organisationId);
+          //console.log(this.$store.state.organisationId);
           this.$store.commit("setToken", access_token);
-          console.log(access_token);
+          //console.log(access_token);
           if (this.type === "HospitalDataManager") {
             console.log("yes");
             this.$router.push("/dashboard");
-          } else this.$router.push("/workarea");
+          } else {
+            console.log("pushing");
+            this.$router.push("/workarea");
+          }
         })
         .catch((e) => (this.isInvalid = true));
     },

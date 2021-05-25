@@ -37,7 +37,7 @@ export default {
     showData() {},
   },
   async created() {
-    console.log("Hello");
+    //console.log("Hello");
     return axios
       .get(process.env.dbUrl + "getDocs")
       .then((res) => {

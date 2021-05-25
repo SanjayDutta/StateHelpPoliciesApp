@@ -43,8 +43,6 @@
 </template>
 
 <script>
-import axios from "axios";
-import Vuex from "vuex";
 import cards from "../../components/UI/cards.vue";
 import HeaderInfo from "../../components/UI/headerInfo.vue";
 //title, imgSrc, imgAlt, text

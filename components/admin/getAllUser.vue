@@ -84,14 +84,11 @@ export default {
   methods: {
     onRowSelect(value) {
       return axios
-        .post(
-          "http://localhost:3000/api/admin/" + "deleteUser/" + this.tableName,
-          {
-            _id: value["0"]._id,
-          }
-        )
+        .post("/api/admin/deleteUser/" + this.tableName, {
+          _id: value["0"]._id,
+        })
         .then((result) => {
-          console.log("yes");
+          //console.log("yes");
           this.modalShow = true;
           //this.$emit("refresh-system", this.tableName);
         })

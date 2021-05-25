@@ -1,6 +1,8 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const mongoose = require('mongoose');
 const router = express.Router();
+const dbUrl = process.env.mongoDbUrl;
 
 const app = express()
 app.use(bodyParser.json());
@@ -10,7 +12,24 @@ router.use((req, res, next) => {
     req.res = res
     res.req = req
     next()
-})
+});
+(async () => {
+    try {
+        await mongoose.connect('mongodb+srv://admin-sanjay:test123@cluster0.bsc3x.mongodb.net/phoenixDB?retryWrites=true&w=majority', {
+            useNewUrlParser: true,
+            useCreateIndex: true,
+            useUnifiedTopology: true,
+            keepAlive: true,
+            bufferMaxEntries: 0,
+            bufferCommands: false
+        }).then((result) => {
+
+        })
+    } catch (err) {
+        console.log(err)
+    }
+})()
+
 
 router.post("/track-data", (req, res) => {
     console.log("Stored data!", req.body.data);

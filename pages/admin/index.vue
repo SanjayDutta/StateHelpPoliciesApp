@@ -93,34 +93,22 @@ export default {
   },
   methods: {
     onSubmit() {
-      console.log(this.form.email);
-      console.log(this.form.password);
-      console.log("http://localhost:3000/api/admin/");
+      // console.log(this.form.email);
+      // console.log(this.form.password);
+      // console.log("http://localhost:3000/api/admin/");
 
       axios
-        .post("http://localhost:3000/api/admin", {
+        .post("/api/admin", {
           email: this.form.email,
           password: this.form.password,
           role: "Admin",
         })
         .then((result) => {
-          console.log("yes");
-          // console.log(result.data.access_token);
-          // const access_token = result.data.access_token;
-          // const organisationId = result.data.organisationId;
-          console.log(result.data.secretId);
+          //console.log("yes");
+
           Cookie.set("access_token", result.data.secretId);
           this.$store.commit("setToken", result.data.secretId);
           this.$router.push("/admin/portal");
-          // Cookie.set("access_token", access_token);
-          // this.$store.commit("setOrgId", organisationId);
-          // console.log(this.$store.state.organisationId);
-          // this.$store.commit("setToken", access_token);
-          // console.log(access_token);
-          // if (this.type === "HospitalDataManager") {
-          //   console.log("yes");
-          //   this.$router.push("/dashboard");
-          // } else this.$router.push("/workarea");
         })
         .catch((e) => (this.isInvalid = true));
     },

@@ -4,10 +4,11 @@ const bcrypt = require('bcrypt');
 const bodyParser = require("body-parser");
 const jwt = require('jsonwebtoken');
 const router = express.Router();
+const dbUrl = process.env.mongoDbUrl;
+
 
 const Uploader = require('../../models/hdManager_model.js')
-const Medsalesrep = require('../../models/medsales_model.js')
-
+const Medsalesrep = require('../../models/medsales_model.js');
 const app = express();
 
 const Admin = require('../../models/admin_model.js')
@@ -27,13 +28,17 @@ router.post('/', (req, res) => {
                 res.status(200).send({ secretId: accessToken });
             }
             else {
+
                 res.sendStatus(404);
             }
         }
         else {
+            console.log('--Error--')
+            console.log(err)
             res.sendStatus(404)
         }
     })
+
 })
 
 router.get('/gethdmanagers', async (req, res) => {

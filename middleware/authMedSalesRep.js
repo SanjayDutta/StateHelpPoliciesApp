@@ -23,17 +23,20 @@ export default function (context) {
 
     //If token doesn't in Cookie, it may be stored in state
     if (context.store.state.token != null) {
+        console.log('Running 2')
         const headers = {
             'Content-Type': 'application/json',
             'Authorization': context.store.state.token
         }
-        return axios.post('http://localhost:3000/api/auth', {
+        console.log(process.env.BASE_URL)
+        return axios.post(process.env.BASE_URL, {
             role: 'Medical Sale Representative'
         }, {
             headers: headers
         })
             .then((result) => console.log("done"))
             .catch((e) => {
+                console.log(e)
                 Cookie.set('access_token', { expires: new Date(0) });
                 context.redirect('/')
             });

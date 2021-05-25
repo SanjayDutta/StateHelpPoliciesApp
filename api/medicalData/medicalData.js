@@ -34,6 +34,7 @@ router.get("/getAll", async (req, res) => {
 
 
 router.get("/getAll/:orgId", async (req, res) => {
+
     await Upload.find(({ organisationId: req.params.orgId }), (err, results) => {
         if (!err) {
             res.status(200).send(results);
@@ -47,7 +48,7 @@ router.get("/getAll/:orgId", async (req, res) => {
 
 
 router.get("/getDocs/:orgId", async (req, res) => {
-
+    console.log('called')
     console.log("orgid:" + req.params.orgId);
     await UploadDocs.find(({ organisationId: req.params.orgId }), async (err, results) => {
         if (!err) {

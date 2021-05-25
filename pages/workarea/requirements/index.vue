@@ -8,9 +8,9 @@
       <p>Click on any row you desire to download all the files.</p>
       <hr />
     </div>
-    <div v-if="loadedData == null? false:true">
-      <div class="table-container" v-if="loadedData.length > 0">
-        <sales-rep-get-data-container :loadedData="loadedData"></sales-rep-get-data-container>
+    <div v-if="loaded == null? false:true">
+      <div class="table-container" v-if="loaded.length > 0">
+        <sales-rep-get-data-container :loadedData="loaded"></sales-rep-get-data-container>
       </div>
     </div>
     <div v-else>
@@ -20,24 +20,35 @@
 </template>
 
 <script>
+import axios from "axios";
 import SalesRepNavBar from "~/components/SalesRep/SalesRepNavBar.vue";
 import SalesRepGetDataContainer from "~/components/SalesRep/SalesRepGetDataContainer.vue";
 export default {
-  middleware: ["getDataMiddleware", "authMedSalesRep", "getOrgId"],
+  middleware: ["authMedSalesRep", "getOrgId"],
   components: {
     SalesRepNavBar,
     SalesRepGetDataContainer,
   },
   data() {
-    return {};
+    return { loaded: [], temp: true };
   },
-  computed: {
-    loadedData() {
-      console.log("in loaded data");
-      const loadedData = this.$store.getters.getLoadedData;
-      console.log(loadedData);
-      return loadedData;
-    },
+  async created() {
+    //console.log("Hello");
+    //console.log(this.$store.state.organisationId);
+    console.log(process.env.dbUrl);
+    axios
+      .get(process.env.dbUrl + "getAll/")
+      .then((res) => {
+        console.log(res.data);
+        this.loaded = res.data;
+        this.temp = false;
+      })
+      .then((result) => {
+        console.log("done");
+      })
+      .catch((e) => {
+        console.log(e);
+      });
   },
   methods: {
     // getData() {

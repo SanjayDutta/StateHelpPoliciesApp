@@ -1,19 +1,4 @@
 const mongoose = require('mongoose');
-const dbUrl = process.env.mongoDbUrl;
-
-// try {
-//     mongoose.connect(dbUrl, { useNewUrlParser: true, useUnifiedTopology: true }).then((result) => {
-//         console.log('Success');
-//     })
-// } catch (err) {
-//     console.log(err)
-// }
-
-mongoose.Promise = global.Promise;
-connect = () => {
-    mongoose.connect(dbUrl, { useNewUrlParser: true }).then(console.log('Database Connected')).catch(err => { console.log(err) });
-}
-
 
 
 const medicalRequirementsSchema = {

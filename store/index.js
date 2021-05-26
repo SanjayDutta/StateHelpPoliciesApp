@@ -18,7 +18,7 @@ const createStore = () => {
             setLoadedData(state, posts) {
                 //console.log("Data set")
                 state.loadedData = posts;
-                console.log(posts)
+                //console.log(posts)
                 // console.log("hi")
             },
             setLoadedDocs(state, array) {
@@ -83,9 +83,9 @@ const createStore = () => {
 
 
             async uploadData(vuexContext, payload) {
-                console.log("in upload-data");
-                console.log(payload.requirements);
-                console.log(payload.token)
+                //console.log("in upload-data");
+                // console.log(payload.requirements);
+                // console.log(payload.token)
                 const postUrl = '/api/dataUpload/upload';
                 await axios.request({
                     method: 'post',
@@ -118,7 +118,7 @@ const createStore = () => {
                 //console.log("Running")
                 //console.log(req)
                 if (req) {
-                    console.log('Here')
+                    //console.log('Here in cookies')
                     if (!req.headers.cookie) {
                         //console.log('TOken not found')
                         return;

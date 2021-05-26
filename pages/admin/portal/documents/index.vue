@@ -39,7 +39,7 @@ export default {
   async created() {
     //console.log("Hello");
     return axios
-      .get(process.env.dbUrl + "getDocs")
+      .get(process.env.BASE_URL + process.env.dbUrl + "getDocs")
       .then((res) => {
         this.loaded = res.data;
         this.temp = false;

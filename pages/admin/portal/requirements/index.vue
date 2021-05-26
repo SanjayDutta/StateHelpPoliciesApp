@@ -41,7 +41,7 @@ export default {
     console.log("Hello");
     console.log(this.$store.state.organisationId);
     axios
-      .get(process.env.dbUrl + "getAll/")
+      .get(process.env.BASE_URL + process.env.dbUrl + "getAll/")
       .then((res) => {
         this.loaded = res.data;
         this.temp = false;

@@ -33,12 +33,12 @@ router.post("/upload", authenticateToken, async (req, res) => {
 
 
 function authenticateToken(req, res, next) {
-    console.log('in authToken')
-    console.log(req.headers['authorization']);
+    // console.log('in authToken')
+    // console.log(req.headers['authorization']);
     const authHeader = req.headers['authorization']
     const token = authHeader && authHeader.split(' ')[1]
 
-    console.log(token)
+    //console.log(token)
     if (token == null) {
         return res.status(401).send({ message: 'Forbidden' })
     }
@@ -52,7 +52,7 @@ function authenticateToken(req, res, next) {
                 next()
             })
         } catch (e) {
-            console.log(e)
+            //console.log(e)
             res.sendStatus(500)
         }
     }

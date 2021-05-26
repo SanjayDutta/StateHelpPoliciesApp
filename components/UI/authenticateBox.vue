@@ -52,8 +52,8 @@ export default {
       else this.goSomewhere = "Register";
     },
     onSubmit() {
-      console.log(this.email);
-      console.log(this.password);
+      // console.log(this.email);
+      // console.log(this.password);
     },
   },
 };

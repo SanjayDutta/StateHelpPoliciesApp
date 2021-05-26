@@ -50,9 +50,9 @@ export default {
     '~/api'
   ],
   env: {
+    BASE_URL: 'http://localhost:3000',
     downloadUrl: '/api/downloadData/',
     dbUrl: '/api/medicalData/',
-    BASE_URL: '/api/auth/',
     mongoDbUrl: 'mongodb+srv://admin-sanjay:test123@cluster0.bsc3x.mongodb.net/phoenixDB?retryWrites=true&w=majority'
   },
   router: {

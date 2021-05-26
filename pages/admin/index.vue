@@ -98,7 +98,7 @@ export default {
       // console.log("http://localhost:3000/api/admin/");
 
       axios
-        .post("/api/admin", {
+        .post(process.env.BASE_URL + "/api/admin", {
           email: this.form.email,
           password: this.form.password,
           role: "Admin",

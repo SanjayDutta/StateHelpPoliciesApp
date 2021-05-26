@@ -41,7 +41,7 @@ export default {
   },
   computed: {
     sendImgPath() {
-      console.log(this.backImg);
+      //console.log(this.backImg);
       return this.backImg;
     },
   },

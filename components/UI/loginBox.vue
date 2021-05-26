@@ -89,14 +89,12 @@ export default {
       else addedRole = "Medical Sale Representative";
       //console.log(addedRole);
       axios
-        .post("/api/login/" + this.type, {
+        .post(process.env.BASE_URL + "/api/login/" + this.type, {
           organisationId: this.form.orgId,
           password: this.form.password,
           role: addedRole,
         })
         .then((result) => {
-          // console.log("yes");
-          // console.log(result.data.access_token);
           const access_token = result.data.access_token;
           const organisationId = result.data.organisationId;
           Cookie.set("organisationId", organisationId);
@@ -104,12 +102,9 @@ export default {
           this.$store.commit("setOrgId", organisationId);
           //console.log(this.$store.state.organisationId);
           this.$store.commit("setToken", access_token);
-          //console.log(access_token);
           if (this.type === "HospitalDataManager") {
-            console.log("yes");
             this.$router.push("/dashboard");
           } else {
-            console.log("pushing");
             this.$router.push("/workarea");
           }
         })

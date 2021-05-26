@@ -136,24 +136,19 @@ export default {
       this.$store.state.isLogin = !this.$store.state.isLogin;
     },
     onSubmit() {
-      //alert(JSON.stringify(this.form));
-      const role = this.form.role;
-      console.log("Role:" + role);
-      console.log("Form:" + this.form.role);
-      console.log("sending post req");
       axios
-        .post("/api/register", {
+        .post(process.env.BASE_URL + "/api/register", {
           ...this.form,
         })
         .then((result) => {
-          console.log("Data inserted");
+          // console.log("Data inserted");
           const access_token = result.data.access_token;
           const organisationId = result.data.organisationId;
           Cookie.set("organisationId", organisationId);
           Cookie.set("access_token", access_token);
           this.$store.commit("setOrgId", organisationId);
           this.$store.commit("setToken", access_token);
-          console.log(this.form.role);
+
           if (role === "Hospital-Data Manager") this.$router.push("/dashboard");
           else this.$router.push("/workarea");
         })

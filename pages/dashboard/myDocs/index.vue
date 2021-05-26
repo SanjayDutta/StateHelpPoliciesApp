@@ -33,20 +33,18 @@ export default {
     showData() {},
   },
   async created() {
-    //console.log("Hello");
-    //console.log(this.$store.state.organisationId);
-    console.log(
-      process.env.dbUrl + "getDocs/" + this.$store.state.organisationId
-    );
     axios
-      .get(process.env.dbUrl + "getDocs/" + this.$store.state.organisationId)
+      .get(
+        process.env.BASE_URL +
+          process.env.dbUrl +
+          "getDocs/" +
+          this.$store.state.organisationId
+      )
       .then((res) => {
         this.loaded = res.data;
         this.temp = false;
-        console.log("ran");
       })
       .catch((e) => {
-        console.log("error man");
         console.log(e);
       });
   },

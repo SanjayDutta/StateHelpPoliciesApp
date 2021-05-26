@@ -73,7 +73,7 @@ export default {
       console.log("cliked");
       if (text === "hdmanagers") {
         return axios
-          .get("/api/admin/gethdmanagers")
+          .get(process.env.BASE_URL + "/api/admin/gethdmanagers")
           .then((res) => {
             this.loadedUsersHDM = res.data;
             this.tempOne = false;
@@ -84,13 +84,14 @@ export default {
           });
       } else {
         return axios
-          .get("/api/admin/getmedsalesrep")
+          .get(process.env.BASE_URL + "/api/admin/getmedsalesreps")
           .then((res) => {
             this.loadedUsersMSR = res.data;
             this.tempTwo = false;
           })
           .catch((e) => {
-            this.$router.push("/error");
+            console.log(e);
+            //this.$router.push("/error");
           });
       }
     },

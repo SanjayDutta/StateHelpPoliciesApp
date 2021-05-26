@@ -35,7 +35,7 @@ export default {
   },
   methods: {
     downloadDataSheet() {
-      console.log(this.requirements);
+      //console.log(this.requirements);
       return axios
         .post(
           process.env.downloadUrl,

@@ -2,21 +2,28 @@
   <div>
     <admin-navbar></admin-navbar>
     <div class="mainBody">
+      <div class="header-content">
+        <h1>Welcome</h1>
+        <p>Phoenix Connect is a platform to upload/view/download all the various documents required by both Hosptal Data Stewards and Pharmacetucal Sales Reresentatives. This platform achieves this by being simple and quick. Get started by choosing one of the options below.</p>
+        <p>
+          As an
+          <strong>Admin</strong> you can see all contents and user participating on this platform and also remove any user you deem unfit.
+        </p>
+      </div>
       <b-card-group deck>
-        <a href="/admin/portal/registeredUsers">
+        <a href="/admin/portal/registeredUsers/">
           <b-card
             title="Registered Users"
             bg-variant="warning"
             tag="article"
             style="max-width: 20rem;max-height:10rem;"
             class="mb-2"
-            @click="goTo('Users')"
           >
             <b-card-text>See all registered users registered on Phoenix Connect</b-card-text>
           </b-card>
         </a>
 
-        <a href="/admin/portal/requirements">
+        <a href="/admin/portal/requirements/">
           <b-card
             title="See all Requirements"
             bg-variant="dark"
@@ -29,7 +36,7 @@
       </b-card-group>
 
       <b-card-group deck>
-        <a href="/admin/portal/documents">
+        <a href="/admin/portal/documents/">
           <b-card
             title="See all Documents"
             bg-variant="dark"
@@ -84,16 +91,18 @@
 <script>
 import Cookie from "js-cookie";
 import Newfooter from "../../../components/UI/newfooter.vue";
+import HeaderInfo from "../../../components/UI/headerInfo.vue";
 export default {
   components: {
     Newfooter,
+    HeaderInfo,
   },
   middleware: "authAdmin",
 
   methods: {
-    goTo(url) {
-      console.log(url);
-    },
+    // goTo(url) {
+    //   console.log(url);
+    // },
     logout() {
       Cookie.set("access_token", "invalid");
       this.$router.push("/");
@@ -106,7 +115,10 @@ export default {
 p {
   font-size: 20px;
 }
-
+.header-content {
+  color: white;
+  margin-bottom: 15px;
+}
 .mainBody {
   padding: 2vw;
   display: grid;

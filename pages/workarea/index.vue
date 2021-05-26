@@ -13,7 +13,7 @@
                   imgSrc="docs"
                   imgAlt="Documents"
                   text="Checkout all the licenses and documents etc provided by different medical facilities"
-                  url="/workarea/documents"
+                  :url="docUrl"
                 ></cards>
               </b-col>
               <b-col class="card-box" cols="12" md="4">
@@ -22,7 +22,7 @@
                   imgSrc="hospital"
                   imgAlt="Requirements"
                   text="Checkout the latest requirements needed by medical facilities ranging from medicines, equipements, beds, etc"
-                  url="/workarea/requirements"
+                  :url="reqUrl"
                 ></cards>
               </b-col>
               <b-col class="card-box" cols="12" md="4">
@@ -31,7 +31,7 @@
                   imgSrc="faq"
                   imgAlt="FAQ"
                   text="Get to know how to navigate on PhoeniX Connect works by reading our FAQ Page."
-                  url="/faq"
+                  :url="faqUrl"
                 ></cards>
               </b-col>
             </b-row>
@@ -49,6 +49,13 @@ import HeaderInfo from "../../components/UI/headerInfo.vue";
 export default {
   components: { cards, HeaderInfo },
   middleware: "authMedSalesRep",
+  data() {
+    return {
+      docUrl: process.env.BASE_URL + "/workarea/documents",
+      reqUrl: process.env.BASE_URL + "/workarea/requirements",
+      faqUrl: process.env.BASE_URL + "/faq",
+    };
+  },
 };
 </script>
 

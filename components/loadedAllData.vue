@@ -45,9 +45,8 @@ export default {
     onRowSelect(value) {
       this.requirements = value["0"];
       const tableDatas = this.requirements["docs"];
-      console.log(tableDatas);
+
       tableDatas.forEach((table) => {
-        //console.log(table.rowObject);
         return axios
           .post(
             process.env.downloadUrl,

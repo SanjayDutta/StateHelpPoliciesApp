@@ -16,7 +16,7 @@ const Admin = require('../../models/admin_model.js')
 router.post('/', (req, res) => {
     Admin.findOne({ email: req.body.email }, async (err, result) => {
         if (!err && result != null) {
-            console.log(result)
+            //console.log(result)
             if (await bcrypt.compare(req.body.password, result.password)) {
                 const payload = { role: req.body.role };
                 const accessToken = jwt.sign(
@@ -33,8 +33,8 @@ router.post('/', (req, res) => {
             }
         }
         else {
-            console.log('--Error--')
-            console.log(err)
+            // console.log('--Error--')
+            // console.log(err)
             res.sendStatus(404)
         }
     })
@@ -42,26 +42,26 @@ router.post('/', (req, res) => {
 })
 
 router.get('/gethdmanagers', async (req, res) => {
-    console.log('In request')
+    //console.log('In request')
     await Uploader.find((err, results) => {
         if (!err) {
             res.status(200).send(results);
         }
         else {
-            console.log("oops")
+            //console.log("oops")
             res.sendStatus(500);
         }
     })
 })
 
 router.get('/getmedsalesreps', async (req, res) => {
-    console.log('In request')
+    //console.log('In request')
     await Medsalesrep.find((err, results) => {
         if (!err) {
             res.status(200).send(results);
         }
         else {
-            console.log("oops")
+            // console.log("oops")
             res.sendStatus(500);
         }
     })

@@ -7,19 +7,19 @@ const app = express()
 
 router.post('/', authenticateToken, (req, res) => {
     if (req.role === req.body.role) {
-        console.log('Sending')
+        //console.log('Sending')
         res.send(200)
     }
     else {
-        console.log(req.role)
-        console.log(req.body.role)
+        // console.log(req.role)
+        // console.log(req.body.role)
         res.send(404)
     }
 
 })
 
 function authenticateToken(req, res, next) {
-    console.log(req.body)
+    //console.log(req.body)
     const authHeader = req.headers['authorization']
     const token = authHeader && authHeader.split(' ')[1]
 
@@ -39,25 +39,25 @@ function authenticateToken(req, res, next) {
         })
     }
     else if (req.body.role === 'Hospital-Data Manager') {
-        console.log('token found, checking role')
+        // console.log('token found, checking role')
         jwt.verify(token, 'secretHospital', (err, data) => {
             if (err) {
                 return res.sendStatus(403)
             }
-            console.log("verified")
-            console.log(data)
+            // console.log("verified")
+            // console.log(data)
             req.role = data.role
             next()
         })
     }
     else if (req.body.role === 'Admin') {
-        console.log('token found, checking role')
+        //console.log('token found, checking role')
         jwt.verify(token, 'secretAdmin', (err, data) => {
             if (err) {
                 return res.sendStatus(403)
             }
-            console.log("verified")
-            console.log(data)
+            // console.log("verified")
+            // console.log(data)
             req.role = data.role
             next()
         })

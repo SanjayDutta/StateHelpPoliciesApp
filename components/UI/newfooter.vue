@@ -9,9 +9,15 @@
               <em>Created By- Sanjay Dutta</em>
               <p>Internship Project for TCS</p>
               <p>Resources of this project is meant to be shared with members associated with TCS.</p>
-              <i class="fab fa-linkedin-in fa-2x"></i>
-              <i class="fab fa-instagram fa-2x"></i>
-              <i class="fab fa-facebook-square fa-2x"></i>
+              <a href="https://www.linkedin.com/in/sanjay-dutta-404/" target="_blank">
+                <i class="fab fa-linkedin-in fa-2x"></i>
+              </a>
+              <a href="https://www.instagram.com/" target="_blank">
+                <i class="fab fa-instagram fa-2x"></i>
+              </a>
+              <a href="https://www.facebook.com/" target="_blank">
+                <i class="fab fa-facebook-square fa-2x"></i>
+              </a>
             </h6>
           </b-col>
           <b-col></b-col>

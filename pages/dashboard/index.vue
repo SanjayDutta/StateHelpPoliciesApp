@@ -75,9 +75,6 @@ export default {
       orgId: this.$store.getters.getOrgId,
     };
   },
-  // created() {
-  //   console.log("OrgID:" + this.$store.getters.getOrgId);
-  // },
 };
 </script>
 

@@ -26,7 +26,7 @@ router.get("/getAll", async (req, res) => {
             res.status(200).send(results);
         }
         else {
-            console.log("oops")
+            // console.log("oops")
             res.sendStatus(500);
         }
     })
@@ -40,7 +40,7 @@ router.get("/getAll/:orgId", async (req, res) => {
             res.status(200).send(results);
         }
         else {
-            console.log("oops")
+            //console.log("oops")
             res.sendStatus(500);
         }
     })
@@ -48,14 +48,14 @@ router.get("/getAll/:orgId", async (req, res) => {
 
 
 router.get("/getDocs/:orgId", async (req, res) => {
-    console.log('called')
-    console.log("orgid:" + req.params.orgId);
+    // console.log('called')
+    // console.log("orgid:" + req.params.orgId);
     await UploadDocs.find(({ organisationId: req.params.orgId }), async (err, results) => {
         if (!err) {
             await res.status(200).send(results);
         }
         else {
-            console.log("oops")
+            //console.log("oops")
             res.sendStatus(500);
         }
     })
@@ -66,13 +66,13 @@ router.get("/getDocs/:orgId", async (req, res) => {
 
 router.get("/getDocs", async (req, res) => {
 
-    console.log('Here')
+    //console.log('Here')
     UploadDocs.find((err, results) => {
         if (!err) {
             res.status(200).send(results);
         }
         else {
-            console.log("oops")
+            //console.log("oops")
             res.sendStatus(500);
         }
     })
@@ -80,7 +80,7 @@ router.get("/getDocs", async (req, res) => {
 })
 
 router.post("/upload", authenticateToken, (req, res) => {
-    console.log(req.body.requirements)
+    //console.log(req.body.requirements)
     if (req.role === req.body.role) {
         const data = new Upload({
             email: req.body.email,
@@ -149,12 +149,12 @@ router.post("/upload", authenticateToken, (req, res) => {
 
 
 function authenticateToken(req, res, next) {
-    console.log('in authToken')
-    console.log(req.headers['authorization']);
+    // console.log('in authToken')
+    // console.log(req.headers['authorization']);
     const authHeader = req.headers['authorization']
     const token = authHeader && authHeader.split(' ')[1]
 
-    console.log(token)
+    //console.log(token)
     if (token == null) {
         return res.status(401).send({ message: 'Forbidden' })
     }
@@ -168,7 +168,7 @@ function authenticateToken(req, res, next) {
                 next()
             })
         } catch (e) {
-            console.log(e)
+            //console.log(e)
             res.sendStatus(500)
         }
     }

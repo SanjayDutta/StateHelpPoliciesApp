@@ -35,10 +35,13 @@ export default {
     return { loaded: [], temp: true };
   },
   async created() {
-    //console.log("Hello");
-    //console.log(this.$store.state.organisationId);
     axios
-      .get(process.env.dbUrl + "getAll/" + this.$store.state.organisationId)
+      .get(
+        process.env.BASE_URL +
+          process.env.dbUrl +
+          "getAll/" +
+          this.$store.state.organisationId
+      )
       .then((res) => {
         this.loaded = res.data;
         this.temp = false;

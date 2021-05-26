@@ -12,13 +12,13 @@ const Hdmanager = require('../../models/hdManager_model.js')
 const Medsalesrep = require('../../models/medsales_model.js')
 
 router.post('/HospitalDataManager', (req, res) => {
-    console.log("In HospitalDataManager");
-    console.log(req.body.password);
+    // console.log("In HospitalDataManager");
+    // console.log(req.body.password);
     Hdmanager.findOne({ organisationId: req.body.organisationId }, async (err, result) => {
         if (!err && result != null) {
-            console.log(result)
+            //console.log(result)
             if (await bcrypt.compare(req.body.password, result.password)) {
-                console.log("Login role:" + req.body.role)
+                //console.log("Login role:" + req.body.role)
                 const payload = { role: req.body.role };
                 const accessToken = jwt.sign(
                     payload,
@@ -39,13 +39,13 @@ router.post('/HospitalDataManager', (req, res) => {
 })
 
 router.post('/SalesRep', (req, res) => {
-    console.log("In Sales Rep");
-    console.log(req.body.password);
+    // console.log("In Sales Rep");
+    // console.log(req.body.password);
     Medsalesrep.findOne({ organisationId: req.body.organisationId }, async (err, result) => {
         if (!err && result != null) {
-            console.log(result)
+            //console.log(result)
             if (await bcrypt.compare(req.body.password, result.password)) {
-                console.log("Login role:" + req.body.role)
+                //console.log("Login role:" + req.body.role)
                 const payload = { role: req.body.role };
                 const accessToken = jwt.sign(
                     payload,

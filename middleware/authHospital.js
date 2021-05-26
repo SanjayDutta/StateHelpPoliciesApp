@@ -2,15 +2,11 @@ import axios from "axios";
 import Cookie from "js-cookie";
 
 export default function (context) {
-    //console.log("--------------")
-    //console.log('Checking for token')
-    //let token = '';
-    //console.log(context.store.state.token);
-    //console.log(context.req.headers)
+
     if (context.req) {
         //If user has requested and cookie exists
         //Checks Cookies, If it does exists, it will store in state.
-        console.log('Running if')
+
         context.store.dispatch('initAuth', context.req)
     }
 
@@ -23,12 +19,12 @@ export default function (context) {
         }
 
         //send a request for authentication with headers and body
-        return axios.post('http://localhost:3000/api/auth', {
+        return axios.post(process.env.BASE_URL + '/api/auth', {
             role: 'Hospital-Data Manager'
         }, {
             headers: headers
         })
-            .then((result) => console.log("done"))
+            .then()
             .catch((e) => {
                 Cookie.set('access_token', { expires: new Date(0) });
                 context.redirect('/')

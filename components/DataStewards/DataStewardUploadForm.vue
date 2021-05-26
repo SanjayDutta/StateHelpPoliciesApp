@@ -130,7 +130,7 @@ import XLSX from "xlsx";
 export default {
   watch: {
     file(val) {
-      console.log("----Single file---");
+      //.log("----Single file---");
       var valid = true;
       if (
         val.type === "application/vnd.ms-excel" ||
@@ -160,7 +160,7 @@ export default {
       }
 
       if (!valid) {
-        console.log("One of the files you have given is wrong");
+        //console.log("One of the files you have given is wrong");
         this.showError = true;
         this.isDisable = true;
         return;
@@ -182,7 +182,6 @@ export default {
         }
       });
       if (!valid) {
-        console.log("One of the files you have given is wrong");
         this.showError = true;
         this.isDisable = true;
         return;
@@ -202,12 +201,8 @@ export default {
               workbook.Sheets[sheet]
             );
             this.extractedData.push({ rowObject });
-            //secondArray.push({ rowObject });
-            //console.log("----second-----");
-            //console.log(secondArray);
           });
         };
-        //this.extractedData.push({ secondArray });
       });
     },
   },
@@ -283,8 +278,8 @@ export default {
       const year = date.getFullYear();
       const day = date.getUTCDate();
       const fullDate = day + "/" + month + "/" + year;
-      //console.log(this.extractedData);
-      console.log(this.$store.state.organisationId);
+      // console.log(this.extractedData);
+      // console.log(this.$store.state.organisationId);
       if (!this.isLicense)
         this.$store.dispatch("upload", {
           ...this.form,
@@ -294,8 +289,8 @@ export default {
           requirements: this.extractedDataOther,
         });
       else {
-        console.log("Extracted");
-        console.log(this.$store.state.organisationId);
+        // console.log("Extracted");
+        // console.log(this.$store.state.organisationId);
         const getToken = this.$store.state.token.split(" ")[1];
         this.$store
           .dispatch("uploadData", {
@@ -305,7 +300,7 @@ export default {
             token: this.$store.state.token,
             requirements: this.extractedData,
           })
-          .then(() => {
+          .catch((e) => {
             //if there is an error
             //console.log("Get Back");
             this.$nuxt.error({ statusCode: 404, message: "err message" });

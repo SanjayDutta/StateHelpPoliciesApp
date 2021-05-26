@@ -84,9 +84,12 @@ export default {
   methods: {
     onRowSelect(value) {
       return axios
-        .post("/api/admin/deleteUser/" + this.tableName, {
-          _id: value["0"]._id,
-        })
+        .post(
+          process.env.BASE_URL + "/api/admin/deleteUser/" + this.tableName,
+          {
+            _id: value["0"]._id,
+          }
+        )
         .then((result) => {
           //console.log("yes");
           this.modalShow = true;

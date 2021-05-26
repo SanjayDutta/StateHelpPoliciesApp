@@ -23,7 +23,11 @@
         <b-row>
           <b-col>
             <h1>What is Phoenix Connect?</h1>
-            <p></p>
+            <p>PhoeniX Connect’ is a web-based application developed to connect Medical Sales Representatives with Data Stewards in a quick and simple manner. The web app enables users to upload documents and maintain them in an organized manner, download the necessary reports, provision of an authorization and authentication system for users and an admin portal to control the content on the platform.</p>
+            <p>
+              Furthermore, Data Stewards can upload requirement lists (like a list of medicines/medical equipment urgently needed). Sales Representatives can access this list to serve the former quickly.
+              Along with the above features, special care has been taken to make sure the user has a smooth experience while using this application.
+            </p>
           </b-col>
         </b-row>
       </b-container>
@@ -70,6 +74,9 @@ h1 {
   color: white;
   margin: 50px 100px;
   text-align: center;
+}
+p {
+  color: white;
 }
 </style>
 

@@ -33,18 +33,12 @@ export default {
     return { loaded: [], temp: true };
   },
   async created() {
-    //console.log("Hello");
-    //console.log(this.$store.state.organisationId);
-    console.log(process.env.dbUrl);
     axios
-      .get(process.env.dbUrl + "getAll/")
+      .get(process.env.BASE_URL + process.env.dbUrl + "getAll/")
       .then((res) => {
-        console.log(res.data);
+        //console.log(res.data);
         this.loaded = res.data;
         this.temp = false;
-      })
-      .then((result) => {
-        console.log("done");
       })
       .catch((e) => {
         console.log(e);

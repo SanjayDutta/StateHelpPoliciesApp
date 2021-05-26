@@ -21,12 +21,12 @@ const router = express.Router();
 
 
 router.post("/", (req, res) => {
-    console.log(req.body.email)
+    //console.log(req.body.email)
     if (req.body.role === 'Hospital-Data Manager') {
-        console.log('yes')
+        // console.log('yes')
         Uploader.findOne({ organisationId: req.body.organisationId }, async (err, result) => {
             if (err) {
-                console.log(err)
+                //console.log(err)
                 res.sendStatus(501);
             }
             else if (!result) {
@@ -70,7 +70,7 @@ router.post("/", (req, res) => {
     else {
         Medsalesrep.findOne({ organisationId: req.body.organisationId }, async (err, result) => {
             if (err) {
-                console.log(err)
+                //console.log(err)
                 res.sendStatus(501);
             }
             else if (!result) {
@@ -88,7 +88,7 @@ router.post("/", (req, res) => {
                     });
                     data.save((err) => {
                         if (!err) {
-                            console.log("here")
+                            //console.log("here")
                             const payload = { role: req.body.role };
                             const accessToken = jwt.sign(
                                 payload,

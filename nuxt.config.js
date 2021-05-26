@@ -50,10 +50,11 @@ export default {
     '~/api'
   ],
   env: {
-    BASE_URL: ' https://shrouded-eyrie-58250.herokuapp.com',
+    BASE_URL: 'https://shrouded-eyrie-58250.herokuapp.com',
     downloadUrl: '/api/downloadData/',
     dbUrl: '/api/medicalData/',
-    mongoDbUrl: 'mongodb+srv://admin-sanjay:test123@cluster0.bsc3x.mongodb.net/phoenixDB?retryWrites=true&w=majority'
+    DB_PASSWORD: ''
+
   },
   router: {
     //middleware: 'getOrgId'

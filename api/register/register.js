@@ -69,6 +69,7 @@ router.post("/", (req, res) => {
     }
     else {
         Medsalesrep.findOne({ organisationId: req.body.organisationId }, async (err, result) => {
+            //console.log(result)
             if (err) {
                 //console.log(err)
                 res.sendStatus(501);

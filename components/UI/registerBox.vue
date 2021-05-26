@@ -148,11 +148,12 @@ export default {
           Cookie.set("access_token", access_token);
           this.$store.commit("setOrgId", organisationId);
           this.$store.commit("setToken", access_token);
-
+          const role = this.form.role;
           if (role === "Hospital-Data Manager") this.$router.push("/dashboard");
           else this.$router.push("/workarea");
         })
         .catch((e) => {
+          //console.log(e);
           this.isInvalid = true;
           //alert("Hello Vue Simple Alertthis");
         });

@@ -57,6 +57,10 @@ export default {
   },
   router: {
     //middleware: 'getOrgId'
+  },
+  transition: {
+    name: 'fade',
+    mode: 'out-in'
   }
 }
 
